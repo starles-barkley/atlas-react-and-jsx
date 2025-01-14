@@ -4,8 +4,8 @@ import SocialLinks from './SocialLinks';
 
 function Header() {
   return <nav>
-      <Greeting />
-      <SocialLinks />
+      <Greeting/>
+      <SocialLinks/>
   </nav>
 }
 
