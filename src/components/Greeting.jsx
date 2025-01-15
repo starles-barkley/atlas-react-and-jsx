@@ -1,30 +1,24 @@
 import React from 'react';
-import { useState, useEffect } from "react"
-import sun from '../assets/day.svg';
-import dusk from '../assets/evening.svg';
-import moon from '../assets/night.svg';
+import dayImage from '../assets/day.svg';
+import eveningImage from '../assets/evening.svg';
+import nightImage from '../assets/night.svg';
 
-function Greeting(props) {
-  const [currentTime, setCurrentTime] = useState(new Date());
+function Greeting() {
+  const currentHour = new Date().getHours();
+  let message, imageSrc;
 
-  useEffect(() => {
-      setCurrentTime(new Date());
-  }, [])
-  const hour = currentTime.getHours();
-  let greeting;
-  let image;
-  
-  if (currentHour >= 6 && currentHour < 12) {
+  if (currentHour >= 6 && currentHour <= 11) {
     message = 'Good Morning!';
-    image = sun;
-  } else if (currentHour >= 12 && currentHour < 17) {
+    imageSrc = dayImage;
+  } else if (currentHour >= 12 && currentHour <= 16) {
     message = 'Good Afternoon!';
-    image = sun;
-  } else if (currentHour >= 17 && currentHour < 21) {
+    imageSrc = dayImage;
+  } else if (currentHour >= 17 && currentHour <= 20) {
     message = 'Good Evening!';
-    image = dusk;
+    imageSrc = eveningImage;
+  } else {
     message = 'Good Night!';
-    image = moon;
+    imageSrc = nightImage;
   }
 
   return (
@@ -33,6 +27,6 @@ function Greeting(props) {
       {message}
     </h1>
   );
-};
+}
 
 export default Greeting;
